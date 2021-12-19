@@ -16,7 +16,7 @@ before_deploy:
   - zip -r business-card-management *
   - mkdir -p deploy
   - mv business-card-management.zip deploy/business-card-management.zip
-  -
+
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY
