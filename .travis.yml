@@ -16,6 +16,7 @@ before_deploy:
   - zip -r business-card-management *
   - mkdir -p deploy
   - mv business-card-management.zip deploy/business-card-management.zip
+  -
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY
@@ -26,6 +27,19 @@ deploy:
     skip_cleanup: true
     acl: private
     local_dir: deploy
+    wait-until-deployed: true
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+
+    bucket: business-card-management-build
+    key: business-card-management.zip
+    bundle_type: zip
+    application: business-card-management
+    deployment_group: business-card-management-group
+
+    region: ap-northeast-2
     wait-until-deployed: true
 
 #CI 실행 완료 시 메일로 알람
