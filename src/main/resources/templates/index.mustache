@@ -1,0 +1,41 @@
+{{>layout/header}}
+    <h1>
+        명함 관리 웹 서비스
+    </h1>
+    <div class=""col-md="12">
+        <div class="row">
+            <a href="/posts/save" role="button" class="btn btn-primary">명함 등록</a>
+        </div>
+    </div>
+    <br>
+    <table class="table table-horizontal table-bordered">
+           <thread class="thread-strong">
+                <tr>
+                    <th>명함 번호</th>
+                    <th>회사명</th>
+                    <th>이름</th>
+                    <th>직함</th>
+                    <th>전화번호</th>
+                    <th>메모</th>
+                </tr>
+           </thread>
+        <tbody id="tbody">
+        {{#posts}}
+            <tr>
+                <td>{{id}}</td>
+                <td><a href="/posts/update/{{id}}">{{company}}</a></td>
+                <td><a href="/posts/update/{{id}}">{{name}}</a></td>
+                <td><a href="/posts/update/{{id}}">{{position}}</a></td>
+                <td><a href="/posts/update/{{id}}">{{phone_number}}</a></td>
+                <td><a href="/posts/update/{{id}}">{{memo}}</a></td>
+<!--                <td>{{company}}</td>-->
+<!--                <td>{{name}}</td>-->
+<!--                <td>{{position}}</td>-->
+<!--                <td>{{phone_number}}</td>-->
+<!--                <td>{{memo}}</td>-->
+                <td>{{modifiedDate}}</td>
+            </tr>
+        {{/posts}}
+        </tbody>
+    </table>
+{{>layout/footer}}

@@ -1,0 +1,39 @@
+{{>layout/header}}
+
+<h1>명함 수정</h1>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="id">명함 번호</label>
+                <input type="text" class="form-control" id="id" value="{{post.id}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="company">회사명</label>
+                <textarea class="form-control" id="company">{{post.company}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="name">이름</label>
+                <textarea class="form-control" id="name">{{post.name}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="position">직함</label>
+                <textarea class="form-control" id="position">{{post.position}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="phone_number">전화번호</label>
+                <textarea class="form-control" id="phone_number">{{post.phone_number}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="memo">메모</label>
+                <textarea class="form-control" id="memo">{{post.memo}}</textarea>
+            </div>
+        </form>
+        <a href="/" role="button" class="btn btn-secondary">취소</a>
+        <button type="button" class="btn btn-primary" id="btn-update">수정 완료</button>
+        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+    </div>
+</div>
+
+{{>layout/footer}}
