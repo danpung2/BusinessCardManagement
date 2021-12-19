@@ -12,8 +12,25 @@ cache:
     - '$HOME/.gradle'
 script: "./gradlew clean build"
 
+before_deploy:
+  - zip -r business-card-management *
+  - mkdir -p deploy
+  - mv business-card-management.zip deploy/business-card-management.zip
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+
+    bucket: business-card-management-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
+
 #CI 실행 완료 시 메일로 알람
 notifications:
   email:
     recipients:
       - danpung_2@naver.com
+
