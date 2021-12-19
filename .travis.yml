@@ -24,7 +24,7 @@ deploy:
 
     bucket: business-card-management-build
     region: ap-northeast-2
-    cleanup: false
+    skip_cleanup: true
     acl: private
     local_dir: deploy
     wait_until_deployed: true
