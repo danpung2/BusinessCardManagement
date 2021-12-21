@@ -31,7 +31,7 @@ deploy:
     cleanup: false
     acl: private
     local_dir: deploy
-    wait_until_deployed: true
+    wait-until-deployed: true
 
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY
